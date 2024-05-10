@@ -1,9 +1,11 @@
 .navbar-nav {
+  margin-right: 20px;
   padding: 0;
   align-items: center;
 }
 
 .navbar {
+  margin-top: 20px;
   padding: 0;
 }
 
@@ -13,4 +15,12 @@
   height: 100%;
   display: flex;
   align-items: center;
+}
+
+.nav-item {
+  font-size: small;
+}
+
+.lightweight {
+  font-weight: 300;
 }

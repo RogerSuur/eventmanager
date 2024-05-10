@@ -13,13 +13,26 @@ code {
     monospace;
 }
 
+.bg-custom-blue {
+  background-color: #005aa1;
+  color: white;
+}
+
+.bg-custom-grey {
+  background-color: #373737;
+}
+
+.bg-custom-text {
+  color: #373737;
+}
+
 html,
 body {
-  background-color: #f8f9fa;
+  background-color: eef2f5;
   height: 100%;
   margin: 0;
 }
 
 .bg-light {
-  background-color: #f8f9fa !important;
+  background-color: eef2f5 !important;
 }
