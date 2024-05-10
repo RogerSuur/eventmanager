@@ -21,6 +21,7 @@ public class EventRepository {
     }
 
     public List<Event> findAll() {
+        log.info("List events");
         return jdbcClient.sql("select * from events")
                 .query(Event.class)
                 .list();
