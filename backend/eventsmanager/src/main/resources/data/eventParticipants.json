@@ -1,0 +1,79 @@
+{
+  "eventParticipants": [
+    {
+      "eventId": 1,
+      "participantId": 1,
+      "participantType": "customer"
+    },
+    {
+      "eventId": 1,
+      "participantId": 10,
+      "participantType": "customer"
+    },
+    {
+      "eventId": 1,
+      "participantId": 1,
+      "participantType": "company"
+    },
+    {
+      "eventId": 2,
+      "participantId": 5,
+      "participantType": "customer"
+    },
+    {
+      "eventId": 2,
+      "participantId": 7,
+      "participantType": "customer"
+    },
+    {
+      "eventId": 3,
+      "participantId": 3,
+      "participantType": "customer"
+    },
+    {
+      "eventId": 3,
+      "participantId": 9,
+      "participantType": "customer"
+    },
+    {
+      "eventId": 4,
+      "participantId": 2,
+      "participantType": "company"
+    },
+    {
+      "eventId": 5,
+      "participantId": 5,
+      "participantType": "company"
+    },
+    {
+      "eventId": 6,
+      "participantId": 10,
+      "participantType": "customer"
+    },
+    {
+      "eventId": 7,
+      "participantId": 7,
+      "participantType": "customer"
+    },
+    {
+      "eventId": 7,
+      "participantId": 3,
+      "participantType": "company"
+    },
+    {
+      "eventId": 8,
+      "participantId": 4,
+      "participantType": "company"
+    },
+    {
+      "eventId": 9,
+      "participantId": 8,
+      "participantType": "customer"
+    },
+    {
+      "eventId": 10,
+      "participantId": 2,
+      "participantType": "customer"
+    }
+  ]
+}

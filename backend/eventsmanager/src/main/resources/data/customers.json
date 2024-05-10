@@ -1,0 +1,74 @@
+{
+  "customers": [
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "idCode": "39111018856",
+      "paymentMethod": "card",
+      "info": "Frequent participant in tech seminars and workshops."
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "idCode": "49103029934",
+      "paymentMethod": "cash",
+      "info": ""
+    },
+    {
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "idCode": "49012038829",
+      "paymentMethod": "card",
+      "info": "Enjoys community events and local meetups."
+    },
+    {
+      "firstName": "Robert",
+      "lastName": "Williams",
+      "idCode": "39040219837",
+      "paymentMethod": "cash",
+      "info": "Regular attendee at business and finance conferences."
+    },
+    {
+      "firstName": "Linda",
+      "lastName": "Brown",
+      "idCode": "49071528874",
+      "paymentMethod": "card",
+      "info": "Interested in arts and cultural events."
+    },
+    {
+      "firstName": "David",
+      "lastName": "Jones",
+      "idCode": "39052819928",
+      "paymentMethod": "cash",
+      "info": "Active participant in charity events and fundraisers."
+    },
+    {
+      "firstName": "Patricia",
+      "lastName": "Garcia",
+      "idCode": "49081120002",
+      "paymentMethod": "card",
+      "info": "Passionate about education and learning opportunities."
+    },
+    {
+      "firstName": "Michael",
+      "lastName": "Miller",
+      "idCode": "39021518846",
+      "paymentMethod": "card",
+      "info": "Frequent traveler and attendee of international events."
+    },
+    {
+      "firstName": "Barbara",
+      "lastName": "Davis",
+      "idCode": "49120529901",
+      "paymentMethod": "cash",
+      "info": ""
+    },
+    {
+      "firstName": "James",
+      "lastName": "Martinez",
+      "idCode": "39071319732",
+      "paymentMethod": "card",
+      "info": "Loves sports events, especially marathons and cycling tournaments."
+    }
+  ]
+}

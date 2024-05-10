@@ -1,0 +1,74 @@
+{
+  "companies": [
+    {
+      "companyName": "Tech Innovations Inc",
+      "companyCode": "TII123",
+      "participantCount": 150,
+      "paymentMethod": "card",
+      "info": "Leading provider of innovative tech solutions."
+    },
+    {
+      "companyName": "Green Earth Ltd",
+      "companyCode": "GEL459",
+      "participantCount": 90,
+      "paymentMethod": "card",
+      "info": "Dedicated to making the earth a greener place."
+    },
+    {
+      "companyName": "AutoWorks Co.",
+      "companyCode": "AWC786",
+      "participantCount": 120,
+      "paymentMethod": "card",
+      "info": "Revolutionizing the way you think about cars."
+    },
+    {
+      "companyName": "Quantum Computing Corp",
+      "companyCode": "QCC342",
+      "participantCount": 200,
+      "paymentMethod": "card",
+      "info": "At the cutting edge of quantum computing research."
+    },
+    {
+      "companyName": "Eco Food & Beverages",
+      "companyCode": "EFB528",
+      "participantCount": 60,
+      "paymentMethod": "cash",
+      "info": "Organic food products that taste and do good."
+    },
+    {
+      "companyName": "NextGen Pharma Ltd",
+      "companyCode": "NPL404",
+      "participantCount": 110,
+      "paymentMethod": "card",
+      "info": "Pioneering new ways to heal the world."
+    },
+    {
+      "companyName": "Cyber Secure Inc",
+      "companyCode": "CSI908",
+      "participantCount": 140,
+      "paymentMethod": "card",
+      "info": "Your security is our top priority."
+    },
+    {
+      "companyName": "Blockchain Solutions LLC",
+      "companyCode": "BSL307",
+      "participantCount": 85,
+      "paymentMethod": "cash",
+      "info": "Building decentralized solutions that empower."
+    },
+    {
+      "companyName": "Renewable Energy Ltd",
+      "companyCode": "REL512",
+      "participantCount": 130,
+      "paymentMethod": "card",
+      "info": "Harnessing the power of nature to fuel our lives."
+    },
+    {
+      "companyName": "Smart Home Technologies",
+      "companyCode": "SHT216",
+      "participantCount": 75,
+      "paymentMethod": "cash",
+      "info": "Making homes smarter and lives easier."
+    }
+  ]
+}

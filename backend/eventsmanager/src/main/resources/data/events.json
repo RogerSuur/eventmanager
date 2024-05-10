@@ -1,0 +1,74 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Tech Conference 2024",
+      "startTime": "2024-06-15T10:00:00",
+      "location": "Convention Center, San Francisco",
+      "info": "Annual technology conference focusing on the future of AI."
+    },
+    {
+      "id": 2,
+      "title": "Local Art Fair",
+      "startTime": "2024-07-20T09:30:00",
+      "location": "Downtown Gallery, New York",
+      "info": "Featuring local artists and their modern creations."
+    },
+    {
+      "id": 3,
+      "title": "Marathon 2024",
+      "startTime": "2024-08-05T06:00:00",
+      "location": "City Park, Boston",
+      "info": "Citywide marathon with over 5,000 participants."
+    },
+    {
+      "id": 4,
+      "title": "Live Music Festival",
+      "startTime": "2024-09-10T15:00:00",
+      "location": "Open Air, Los Angeles",
+      "info": "Enjoy the biggest bands from across the globe."
+    },
+    {
+      "id": 5,
+      "title": "Food Expo",
+      "startTime": "2024-10-23T11:00:00",
+      "location": "Expo Center, Chicago",
+      "info": "Explore tastes from around the world."
+    },
+    {
+      "id": 6,
+      "title": "Book Fair",
+      "startTime": "2023-11-15T09:00:00",
+      "location": "City Library, Seattle",
+      "info": "Annual book fair with thousands of books to explore."
+    },
+    {
+      "id": 7,
+      "title": "Health & Wellness Seminar",
+      "startTime": "2023-12-10T10:30:00",
+      "location": "Health Center, Miami",
+      "info": "Learn about new health practices and wellness routines."
+    },
+    {
+      "id": 8,
+      "title": "New Year's Eve Bash",
+      "startTime": "2023-12-31T20:00:00",
+      "location": "Main Square, Las Vegas",
+      "info": "Ring in the new year with thousands of party-goers!"
+    },
+    {
+      "id": 9,
+      "title": "Valentine's Day Ball",
+      "startTime": "2024-02-14T19:00:00",
+      "location": "Royal Hall, London",
+      "info": "An elegant evening of dance and celebration."
+    },
+    {
+      "id": 10,
+      "title": "Spring Flower Expo",
+      "startTime": "2024-03-20T09:00:00",
+      "location": "Botanical Gardens, Amsterdam",
+      "info": "Discover a wide variety of spring blooms and gardening tips."
+    }
+  ]
+}
