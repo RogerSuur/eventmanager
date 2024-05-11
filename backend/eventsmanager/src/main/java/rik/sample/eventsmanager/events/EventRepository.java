@@ -35,8 +35,9 @@ public class EventRepository {
     }
 
     public void create(Event event) {
-        var updated = jdbcClient.sql("INSERT INTO events(id,title,startTime, location, info) values(?,?,?,?,?)")
-                .params(List.of(event.id(),event.title(),event.startTime(),event.location().toString(), event.info()))
+        System.out.println(event);
+        var updated = jdbcClient.sql("INSERT INTO events (title,startTime, location, info) values(?,?,?,?)")
+                .params(List.of(event.title(),event.startTime(),event.location().toString(), event.info()))
                 .update();
 
         Assert.state(updated == 1, "Failed to create event " + event.title());

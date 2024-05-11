@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.TypeReference;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,6 +15,7 @@ import java.io.InputStream;
 
 
 @Component
+@Order(1)
 public class EventJsonDataLoader implements CommandLineRunner {
 
     private static final Logger log = LoggerFactory.getLogger(EventJsonDataLoader.class);

@@ -25,13 +25,12 @@ function MainPage() {
     fetchEvents();
   }, []);
 
-  // Split events into upcoming and past
-  const upcomingEvents = events.filter(
-    (event) => new Date(event.startTime) > new Date()
-  );
-  const pastEvents = events.filter(
-    (event) => new Date(event.startTime) <= new Date()
-  );
+  const upcomingEvents = events
+    .filter((event) => new Date(event.startTime) > new Date())
+    .sort((a, b) => new Date(a.startTime) - new Date(b.startTime));
+  const pastEvents = events
+    .filter((event) => new Date(event.startTime) <= new Date())
+    .sort((a, b) => new Date(b.startTime) - new Date(a.startTime));
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -55,77 +54,89 @@ function MainPage() {
               src={image}
               alt="Pilt"
               style={{ display: "block", width: "100%", height: "auto" }}
-              srcset=""
             />
           </div>
         </div>
-      </div>
+        {/* </div> */}
 
-      <div className="row mt-3">
-        <div className="col-md-6 d-flex flex-column  align-items-center justify-content-center bg-white">
-          <p className="bg-custom-blue h3 lightweight text-center p-4 w-100">
-            Tulevad üritused
-          </p>
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            upcomingEvents.map((event, index) => (
-              <div
-                key={event.id}
-                className="text-center w-100 d-flex justify-content-between align-items-center text-lightgrey"
-                style={{ padding: "10px" }}
-              >
-                <p>
-                  {index + 1}. {event.title}
-                </p>
-                <p>{formatDate(event.startTime)}</p>
+        <div className="row mt-3 p-0">
+          <div className="col-md-6 d-flex flex-column justify-content-center bg-white">
+            <p className="bg-custom-blue h3 lightweight text-center p-4 w-100">
+              Tulevad üritused
+            </p>
+            <div className="flex-grow-1">
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                upcomingEvents.map((event, index) => (
+                  <div
+                    key={event.id}
+                    className="text-center w-100 d-flex justify-content-between align-items-center text-lightgrey "
+                    style={{ padding: "1px" }}
+                  >
+                    <div className="col-5 d-flex align-items-center text-start">
+                      <p>
+                        {index + 1}. {event.title}
+                      </p>
+                    </div>
+                    <div className="col-4 d-flex align-items-center">
+                      <p>{formatDate(event.startTime)}</p>
+                    </div>
+                    <div className="col-2 d-flex align-items-center">
+                      <p>OSAVÕTJAD</p>
+                    </div>
+                    <div className="col-1 d-flex align-items-center justify-content-center">
+                      <button
+                        className="btn p-0 mb-3"
+                        style={{ border: "none", background: "none" }}
+                      >
+                        <img
+                          src={removeImage}
+                          alt="Pilt"
+                          className="color-black"
+                          style={{ width: 15 }}
+                        />
+                      </button>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+            <Link to="/add-event" style={{ textDecoration: "none" }}>
+              <p className="text-grey mt-3 mb-3">ADD NEW EVENT</p>
+            </Link>
+          </div>
 
-                <p>OSAVÕTJAD</p>
-                <button
-                  className="btn"
-                  style={{ border: "none", background: "none" }}
-                >
-                  <img
-                    src={removeImage}
-                    alt="Pilt"
-                    className="color-black"
-                    style={{ width: 10 }}
-                    srcset=""
-                  />
-                </button>
-              </div>
-            ))
-          )}
-          <Link to="/add-event" style={{ textDecoration: "none" }}>
-            <p className="text-grey mt-3 mb-3">ADD NEW EVENT</p>
-          </Link>
-        </div>
-        <div className="col-md-6 d-flex flex-column  align-items-center justify-content-center">
-          <p className="bg-custom-blue h3 text-center lightweight p-4 w-100">
-            Toimunud üritused
-          </p>
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            pastEvents.map((event, index) => (
-              <div key={event.id}>
-                <div className="row">
-                  <div className="col">
-                    <p>
-                      {index + 1}
-                      {event.title}
-                    </p>
+          <div className="col-md-6 d-flex flex-column justify-content-center bg-white">
+            <p className="bg-custom-blue h3 lightweight text-center p-4 w-100">
+              Toimunud üritused
+            </p>
+            <div className="flex-grow-1">
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                pastEvents.map((event, index) => (
+                  <div
+                    key={event.id}
+                    className="text-center w-100 d-flex justify-content-between align-items-center text-lightgrey"
+                    style={{ padding: "1px" }}
+                  >
+                    <div className="col-6 text-start">
+                      <p>
+                        {index + 1}. {event.title}
+                      </p>
+                    </div>
+                    <div className="col-3">
+                      <p>{formatDate(event.startTime)}</p>
+                    </div>
+                    <div className="col-3">
+                      <p>OSAVÕTJAD</p>
+                    </div>
                   </div>
-                  <div className="col">
-                    <p>{formatDate(event.startTime)}</p>
-                  </div>
-                  <div className="col">
-                    <p>OSAVÕTJAD</p>
-                  </div>
-                </div>
-              </div>
-            ))
-          )}
+                ))
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>

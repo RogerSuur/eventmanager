@@ -1,10 +1,9 @@
 CREATE TABLE IF NOT EXISTS Events (
-    id INT NOT NULL,
+    id SERIAL PRIMARY KEY,
     title varchar(250) NOT NULL,
     startTime timestamp NOT NULL,
     location varchar(100) NOT NULL,
-    info varchar(1000),
-    PRIMARY KEY (id)
+    info varchar(1000)
 );
 
 CREATE TABLE IF NOT EXISTS customers (

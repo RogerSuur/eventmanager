@@ -6,7 +6,7 @@ import symbol from "../assets/images/symbol.svg";
 function Navbar() {
   return (
     <nav className="navbar bg-white d-flex navbar-expand-lg bg-white">
-      <img className="mx-5" src={homeIcon} alt="Home" srcset="" />
+      <img className="mx-5" src={homeIcon} alt="Home" />
       <button
         className="navbar-toggler"
         type="button"

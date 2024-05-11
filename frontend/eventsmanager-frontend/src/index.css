@@ -28,11 +28,32 @@ code {
 
 html,
 body {
-  background-color: eef2f5;
+  background-color: #eef2f5;
   height: 100%;
   margin: 0;
 }
 
 .bg-light {
-  background-color: eef2f5 !important;
+  background-color: #eef2f5 !important;
+}
+
+.add-event-row {
+  height: 100px;
+  overflow: hidden;
+}
+
+.add-event-image {
+  max-height: 100%;
+  width: auto;
+}
+
+.add-event-text-col {
+  height: 100%;
+  overflow: auto;
+}
+
+.add-event-title {
+  color: #005aa1;
+  font-size: 20px;
+  font-weight: 400;
 }
