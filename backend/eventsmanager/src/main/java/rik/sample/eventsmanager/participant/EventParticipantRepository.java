@@ -24,7 +24,6 @@ public class EventParticipantRepository {
         }
 
         public List<ParticipantDetail> findParticipantsByEventId(Integer eventId) {
-            System.out.println("EVENTID:" + eventId);
             String sql = "SELECT c.id AS participant_id, c.first_name || ' ' || c.last_name AS name, c.id_code AS code, 'customer' AS participant_type FROM event_participants ep JOIN customers c ON c.id = ep.participant_id WHERE ep.event_id = ? AND ep.participant_type = 'customer' UNION ALL SELECT comp.id AS participant_id, comp.company_name AS name, comp.company_code AS code, 'company' AS participant_type FROM event_participants ep JOIN companies comp ON comp.id = ep.participant_id WHERE ep.event_id = ? AND ep.participant_type = 'company';";
             return jdbcTemplate.query(sql, new ParticipantDetailRowMapper(), eventId, eventId);
         }

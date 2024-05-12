@@ -49,7 +49,7 @@ public class EventParticipantController {
         return ResponseEntity.ok(participants);
     }
 
-    // Create a new customer
+    // Create a new eventParticipant
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     void createEventParticipant(@Valid @RequestBody EventParticipant eventParticipant) {

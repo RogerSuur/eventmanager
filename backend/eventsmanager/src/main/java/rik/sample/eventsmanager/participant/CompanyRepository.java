@@ -1,5 +1,7 @@
 package rik.sample.eventsmanager.participant;
 
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 
@@ -33,23 +37,57 @@ public class CompanyRepository {
                          .optional();
     }
 
-    public void create(Company company) {
-        System.out.println(company);
-        var updated = jdbcClient.sql("INSERT INTO companies ( company_name, company_code, participant_count, payment_method, info) VALUES ( ?, ?, ?, ?, ?)")
-                                .params(company.companyName(), company.companyCode(), company.participantCount(), company.paymentMethod(), company.info())
-                                .update();
-        Assert.state(updated == 1, "Failed to create company " + company.companyName());
+    public Optional<Integer> create(Company company) {
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        
+        jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(
+                "INSERT INTO companies (company_name, company_code, participant_count, payment_method, info) VALUES (?, ?, ?, ?, ?)",
+                new String[]{"id"}  
+            );
+        ps.setString(1, company.companyName());
+        ps.setString(2, company.companyCode());
+        ps.setInt(3, company.participantCount());
+        ps.setString(4, company.paymentMethod());
+        ps.setString(5, company.info());
+        return ps;
+    }, keyHolder);
+
+    log.info("Added company to the repository");
+
+    if (keyHolder.getKeys().size() > 1) {
+        // More than one key found, handle appropriately (error/log)
+        return Optional.empty();
+    } else if (keyHolder.getKey() == null) {
+        // No key was returned
+        return Optional.empty();
+    } else {
+        // Successfully retrieved the generated ID
+        return Optional.of(keyHolder.getKey().intValue());
+    }
+
+    // if (keyHolder.getKey() != null) {
+    //     return Optional.of(keyHolder.getKey().intValue());
+    // } else {
+    //     return Optional.empty();
+    // }
+
+
+        // var updated = jdbcClient.sql("INSERT INTO companies ( company_name, company_code, participant_count, payment_method, info) VALUES ( ?, ?, ?, ?, ?)")
+        //                         .params(company.companyName(), company.companyCode(), company.participantCount(), company.paymentMethod(), company.info())
+        //                         .update();
+        // Assert.state(updated == 1, "Failed to create company " + company.companyName());
     }
 
     public void saveAll(List<Company> companies) {
         companies.stream().forEach(this::create);
     }
 
-    public void update(Company company, Integer id) {
+    public boolean update(Company company, Integer id) {
         var updated = jdbcClient.sql("update companies set company_name = ?, company_code = ?,participant_count=?, payment_method = ?,info=? where id = ?")
                 .params(List.of(company.companyName(), company.companyCode(), company.participantCount(), company.paymentMethod(), company.info(), id))
                 .update();
-        Assert.state(updated == 1, "Failed to update company " + company.companyName());
+                return updated ==1;
     }
 
     public void delete(Integer id) {

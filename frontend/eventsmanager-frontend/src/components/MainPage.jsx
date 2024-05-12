@@ -14,7 +14,6 @@ function MainPage() {
         const response = await fetch("http://localhost:8080/api/events");
         const data = await response.json();
         setEvents(data);
-        console.log(data);
       } catch (error) {
         console.error("Failed to fetch events:", error);
       } finally {
@@ -139,7 +138,11 @@ function MainPage() {
                     <div className="col-3">
                       <p>{formatDate(event.startTime)}</p>
                     </div>
-                    <Link to={`/participants/${event.id}`} className="col-3">
+                    <Link
+                      to={`/participants/${event.id}`}
+                      className="col-3"
+                      style={{ textDecoration: "none", color: "gray" }}
+                    >
                       <p>OSAVÕTJAD</p>
                     </Link>
                   </div>
