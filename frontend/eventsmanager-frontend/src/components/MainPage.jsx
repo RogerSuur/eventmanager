@@ -36,6 +36,31 @@ function MainPage() {
     return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
   };
 
+  const deleteEvent = async (id, type) => {
+    console.log("Deleting participant", id, type);
+
+    try {
+      const response = await fetch(`http://localhost:8080/event/${id}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        console.log("Participant deleted successfully!");
+        // Filter out the participant from the list after deletion
+        setParticipants(
+          participants.filter((participant) => participant.id !== id)
+        );
+        alert("Participant deleted successfully!");
+        navigate("/");
+      } else {
+        throw new Error("Failed to delete the participant");
+      }
+    } catch (error) {
+      console.error("Error deleting participant:", error.message);
+      alert("Error deleting participant: " + error.message);
+    }
+  };
+
   return (
     <div>
       <div className="container mt-3 p-0">
@@ -95,6 +120,7 @@ function MainPage() {
                       <button
                         className="btn p-0 mb-3"
                         style={{ border: "none", background: "none" }}
+                        onClick={deleteEvent}
                       >
                         <img
                           src={removeImage}

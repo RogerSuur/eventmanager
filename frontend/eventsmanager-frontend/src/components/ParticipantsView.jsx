@@ -150,9 +150,29 @@ function ParticipantsView() {
     }
   };
 
-  const deleteParticipant = (id, type) => {
+  const deleteParticipant = async (id, type) => {
     console.log("Deleting participant", id, type);
-    // Actual delete logic here
+
+    const endpoint =
+      type === "customer" ? `/api/customers/${id}` : `/api/companies/${id}`;
+    try {
+      const response = await fetch(`http://localhost:8080${endpoint}`, {
+        method: "DELETE",
+      });
+
+      if (response.ok) {
+        setParticipants(
+          participants.filter((participant) => participant.id !== id)
+        );
+        alert("Participant deleted successfully!");
+        navigate("/");
+      } else {
+        throw new Error("Failed to delete the participant");
+      }
+    } catch (error) {
+      console.error("Error deleting participant:", error.message);
+      alert("Error deleting participant: " + error.message);
+    }
   };
 
   if (loading) return <p>Loading...</p>;
