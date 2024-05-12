@@ -16,7 +16,12 @@ function App() {
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/add-event" element={<AddEvent />} />
-            <Route path="/participants" element={<ParticipantsView />} />
+            <Route
+              path="/participants/:eventId"
+              element={<ParticipantsView />}
+            />
+            {/* <Route path="/customer/:customerId" element={<CustomerView />} />
+            <Route path="/company/:companyId" element={<CompanyView />} /> */}
             <Route path="/add-participant" element={<AddParticipant />} />
           </Routes>
           <Footer />

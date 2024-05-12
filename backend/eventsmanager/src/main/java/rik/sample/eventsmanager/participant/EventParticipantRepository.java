@@ -1,6 +1,8 @@
 package rik.sample.eventsmanager.participant;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.JdbcClient;
@@ -20,6 +22,13 @@ public class EventParticipantRepository {
             .query(EventParticipant.class)
             .list();
         }
+
+        public List<ParticipantDetail> findParticipantsByEventId(Integer eventId) {
+            System.out.println("EVENTID:" + eventId);
+            String sql = "SELECT c.id AS participant_id, c.first_name || ' ' || c.last_name AS name, c.id_code AS code, 'customer' AS participant_type FROM event_participants ep JOIN customers c ON c.id = ep.participant_id WHERE ep.event_id = ? AND ep.participant_type = 'customer' UNION ALL SELECT comp.id AS participant_id, comp.company_name AS name, comp.company_code AS code, 'company' AS participant_type FROM event_participants ep JOIN companies comp ON comp.id = ep.participant_id WHERE ep.event_id = ? AND ep.participant_type = 'company';";
+            return jdbcTemplate.query(sql, new ParticipantDetailRowMapper(), eventId, eventId);
+        }
+        
 
     public void create(EventParticipant eventParticipant) {
         var updated = jdbcClient.sql("INSERT INTO event_participants ( event_id, participant_id, participant_type) VALUES (?, ?, ?)")

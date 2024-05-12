@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS companies (
 
 
 CREATE TABLE IF NOT EXISTS event_participants (
-    event_id INTEGER REFERENCES events(id),
+    event_id INTEGER REFERENCES events(id) ON DELETE CASCADE,
     participant_id INTEGER,  
     participant_type VARCHAR(10) CHECK (participant_type IN ('customer', 'company')), 
     PRIMARY KEY (event_id, participant_id, participant_type)

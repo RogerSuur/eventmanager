@@ -82,9 +82,16 @@ function MainPage() {
                     <div className="col-4 d-flex align-items-center">
                       <p>{formatDate(event.startTime)}</p>
                     </div>
-                    <div className="col-2 d-flex align-items-center">
+                    <Link
+                      to={`/participants/${event.id}`}
+                      className="col-2 d-flex align-items-center"
+                      style={{
+                        textDecoration: "none",
+                        color: "gray",
+                      }}
+                    >
                       <p>OSAVÕTJAD</p>
-                    </div>
+                    </Link>
                     <div className="col-1 d-flex align-items-center justify-content-center">
                       <button
                         className="btn p-0 mb-3"
@@ -102,7 +109,10 @@ function MainPage() {
                 ))
               )}
             </div>
-            <Link to="/add-event" style={{ textDecoration: "none" }}>
+            <Link
+              to="/add-event"
+              style={{ textDecoration: "none", color: "gray" }}
+            >
               <p className="text-grey mt-3 mb-3">ADD NEW EVENT</p>
             </Link>
           </div>
@@ -129,9 +139,9 @@ function MainPage() {
                     <div className="col-3">
                       <p>{formatDate(event.startTime)}</p>
                     </div>
-                    <div className="col-3">
+                    <Link to={`/participants/${event.id}`} className="col-3">
                       <p>OSAVÕTJAD</p>
-                    </div>
+                    </Link>
                   </div>
                 ))
               )}

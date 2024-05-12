@@ -1,7 +1,10 @@
 package rik.sample.eventsmanager.participant;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,19 +25,29 @@ public class EventParticipantController {
         this.eventParticipantRepository = eventParticipantRepository;
     }
 
+    // TODO: IS REALLY NEEDED?
      // Get all eventParticipants
     @GetMapping("")
     public List<EventParticipant> getAllEventParticipants() {
         return eventParticipantRepository.findAll();
     }
 
-    //TODO:Is really needed?
     // Get a single customer by ID
-    // @GetMapping("/{id}")
-    // public ResponseEntity<EventParticipant> getEventParticipantById(@PathVariable Integer id) {
-    //     Optional<EventParticipant> eventParticipant = eventParticipantRepository.findById(id);
-    //     return eventParticipant.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    // }
+    // public ResponseEntity<EventParticipant> findById(@PathVariable Integer id) {
+        //     Optional<EventParticipant> eventParticipant = eventParticipantRepository.findById(id);
+        //     System.out.println("Participant:" + eventParticipant);
+        //     return eventParticipant.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        // }
+    @GetMapping("/{id}")
+    public ResponseEntity<List<ParticipantDetail>> getEventParticipants(@PathVariable Integer id) {
+        System.out.println("EVENTID " + id);
+        List<ParticipantDetail> participants = eventParticipantRepository.findParticipantsByEventId(id);
+        if (participants.isEmpty()) {
+            System.out.println("ERROR, participants.empty");
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(participants);
+    }
 
     // Create a new customer
     @ResponseStatus(HttpStatus.CREATED)
