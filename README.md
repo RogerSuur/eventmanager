@@ -10,9 +10,9 @@ Rakendus kasutab Reacti raamistikku frontis ja Java Spring Booti backendis. See 
 
 Java 21 `java -version`
 
-Node.js 12.x või uuem`node -version`
+Node.js 16.x või uuem`node -version`
 
-npm 6.x või uuem `npm -version`
+npm 8.x või uuem `npm -version`
 
 Maven peab olema installitud.
 
