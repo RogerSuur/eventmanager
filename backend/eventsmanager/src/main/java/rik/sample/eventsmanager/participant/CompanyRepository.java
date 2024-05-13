@@ -1,7 +1,6 @@
 package rik.sample.eventsmanager.participant;
 
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,27 +55,12 @@ public class CompanyRepository {
     log.info("Added company to the repository");
 
     if (keyHolder.getKeys().size() > 1) {
-        // More than one key found, handle appropriately (error/log)
         return Optional.empty();
     } else if (keyHolder.getKey() == null) {
-        // No key was returned
         return Optional.empty();
     } else {
-        // Successfully retrieved the generated ID
         return Optional.of(keyHolder.getKey().intValue());
     }
-
-    // if (keyHolder.getKey() != null) {
-    //     return Optional.of(keyHolder.getKey().intValue());
-    // } else {
-    //     return Optional.empty();
-    // }
-
-
-        // var updated = jdbcClient.sql("INSERT INTO companies ( company_name, company_code, participant_count, payment_method, info) VALUES ( ?, ?, ?, ?, ?)")
-        //                         .params(company.companyName(), company.companyCode(), company.participantCount(), company.paymentMethod(), company.info())
-        //                         .update();
-        // Assert.state(updated == 1, "Failed to create company " + company.companyName());
     }
 
     public void saveAll(List<Company> companies) {
@@ -103,7 +87,6 @@ public class CompanyRepository {
 
 
     public int count() {
-        //return jdbcClient.sql("SELECT COUNT(*) FROM customers").query().listOfRows().size();
         Integer count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM companies", Integer.class);
         return count != null ? count : 0;
     }

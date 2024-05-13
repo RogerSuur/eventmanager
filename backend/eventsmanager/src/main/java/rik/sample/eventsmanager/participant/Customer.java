@@ -14,9 +14,6 @@ Integer id,
 @NotEmpty
  String paymentMethod,
  String info) {
-    public Customer{
-
-    }
-    
+   
     
 }

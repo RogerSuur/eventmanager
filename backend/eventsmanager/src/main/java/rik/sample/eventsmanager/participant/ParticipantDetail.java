@@ -13,7 +13,6 @@ public class ParticipantDetail {
         this.type = type;
     }
 
-    // Getters
     public Integer getId() {
         return id;
     }

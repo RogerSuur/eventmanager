@@ -1,7 +1,6 @@
 package rik.sample.eventsmanager.participant;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -53,7 +52,6 @@ public class EventParticipantRepository {
 
 
     public int count() {
-        //return jdbcClient.sql("SELECT COUNT(*) FROM customers").query().listOfRows().size();
         Integer count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM event_participants", Integer.class);
         return count != null ? count : 0;
     }

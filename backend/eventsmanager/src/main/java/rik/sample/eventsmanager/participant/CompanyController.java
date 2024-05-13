@@ -33,13 +33,13 @@ public class CompanyController {
         this.companyRepository = companyRepository;
     }
 
-    // Get all customers
+    // Get all companies
     @GetMapping("")
     public List<Company> getAllCompanies() {
         return companyRepository.findAll();
     }
 
-    // Get a single customer by ID
+    // Get a single company by ID
     @GetMapping("/{id}")
     public ResponseEntity<Company> getCustomerById(@PathVariable Integer id) {
         Optional<Company> company = companyRepository.findById(id);

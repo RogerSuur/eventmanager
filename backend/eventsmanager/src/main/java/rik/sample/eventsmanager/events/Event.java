@@ -15,6 +15,4 @@ String title,
   String location, 
   String info) {
  
-    public Event {
-    }
 }

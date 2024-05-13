@@ -5,5 +5,5 @@ public record EventParticipant (
      Integer participantId,
      String participantType
 ) {
-    public EventParticipant {}
+   
 }
