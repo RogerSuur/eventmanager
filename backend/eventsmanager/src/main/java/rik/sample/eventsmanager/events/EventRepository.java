@@ -35,20 +35,11 @@ public class EventRepository {
     }
 
     public void create(Event event) {
-        System.out.println(event);
         var updated = jdbcClient.sql("INSERT INTO events (title,startTime, location, info) values(?,?,?,?)")
                 .params(List.of(event.title(),event.startTime(),event.location().toString(), event.info()))
                 .update();
 
         Assert.state(updated == 1, "Failed to create event " + event.title());
-    }
-
-    public void update(Event event, Integer id) {
-        var updated = jdbcClient.sql("update events set title = ?, startTime = ?,location = ?, info=? where id = ?")
-                .params(List.of(event.title(),event.startTime(),event.location().toString(), event.info(), id))
-                .update();
-
-        Assert.state(updated == 1, "Failed to update event " + event.title());
     }
 
     public void delete(Integer id) {
@@ -74,30 +65,3 @@ public class EventRepository {
                 .list();
     }
 }
-
-
-// List <Event> findAll() {
-//     return events;
-// }
-
-// Optional<Event> findById(Integer id) {
-//     return events.stream()
-//             .filter(event -> event.id() == id)
-//             .findFirst();
-//     }
-
-// void create(Event event) {
-//     events.add(event);
-// }
-
-// void update(Event event, Integer id) {
-//     Optional<Event> existingEvent = findById(id);
-//     if(existingEvent.isPresent()) {
-//         events.set(events.indexOf(existingEvent.get()), event);
-//     }
-// }
-
-// //delete
-// void delete(Integer id) {
-//     events.removeIf(event -> event.id().equals(id));
-// }

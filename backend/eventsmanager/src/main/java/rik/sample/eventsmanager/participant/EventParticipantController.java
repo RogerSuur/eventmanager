@@ -25,19 +25,11 @@ public class EventParticipantController {
         this.eventParticipantRepository = eventParticipantRepository;
     }
 
-    // TODO: IS REALLY NEEDED?
-     // Get all eventParticipants
     @GetMapping("")
     public List<EventParticipant> getAllEventParticipants() {
         return eventParticipantRepository.findAll();
     }
 
-    // Get a single customer by ID
-    // public ResponseEntity<EventParticipant> findById(@PathVariable Integer id) {
-        //     Optional<EventParticipant> eventParticipant = eventParticipantRepository.findById(id);
-        //     System.out.println("Participant:" + eventParticipant);
-        //     return eventParticipant.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-        // }
     @GetMapping("/{id}")
     public ResponseEntity<List<ParticipantDetail>> getEventParticipants(@PathVariable Integer id) {
         System.out.println("EVENTID " + id);
@@ -56,14 +48,6 @@ public class EventParticipantController {
         eventParticipantRepository.create(eventParticipant);
     }
 
-
-    //TODO:also needs to be check if needed
-    // Update an existing customer
-    // @ResponseStatus(HttpStatus.NO_CONTENT)
-    // @PutMapping("/{id}")
-    // void updateEventParticipant(@Valid @RequestBody EventParticipant eventParticipant, @PathVariable Integer id) {
-    //     EventParticipantRepository.update(eventParticipant, id);
-    // }
 
     //delete
     @ResponseStatus(HttpStatus.NO_CONTENT)

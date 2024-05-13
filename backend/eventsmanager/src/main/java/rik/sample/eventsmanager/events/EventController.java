@@ -27,7 +27,6 @@ public class EventController {
         this.eventRepository = eventRepository;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("")
     List<Event> findAll() {
         return eventRepository.findAll();
@@ -50,12 +49,6 @@ public class EventController {
         eventRepository.create(event);
     }
 
-    //put 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("/{id}")
-    void update(@Valid @RequestBody Event event, @PathVariable Integer id) {
-        eventRepository.update(event, id);
-    }
 
     //delete
     @ResponseStatus(HttpStatus.NO_CONTENT)

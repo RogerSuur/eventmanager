@@ -47,12 +47,6 @@ public class CustomerController {
         return customer.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Create a new customer
-    // @ResponseStatus(HttpStatus.CREATED)
-    // @PostMapping("")
-    // void createCustomer(@Valid @RequestBody Customer customer) {
-    //     customerRepository.create(customer);
-    // }
      @PostMapping("")
     public ResponseEntity<Object> createCustomer(@Valid @RequestBody Customer customer) {
         log.info("COntroller receive post customer", customer);

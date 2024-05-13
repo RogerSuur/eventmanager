@@ -58,7 +58,6 @@ public class CustomerRepository {
     } else if (keyHolder.getKey() == null) {
         return Optional.empty();
     } else {
-        // Successfully retrieved the generated ID
         return Optional.of(keyHolder.getKey().intValue());
     }
     }
@@ -87,7 +86,6 @@ public class CustomerRepository {
 
 
     public int count() {
-        //return jdbcClient.sql("SELECT COUNT(*) FROM customers").query().listOfRows().size();
         Integer count = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM customers", Integer.class);
         return count != null ? count : 0;
     }

@@ -16,8 +16,5 @@ String title,
   String info) {
  
     public Event {
-        // if(startTime.isAfter(LocalDateTime.now())) {
-        //     throw new IllegalArgumentException("Event cannot be in the past");
-        // }
     }
 }

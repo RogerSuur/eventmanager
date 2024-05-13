@@ -46,12 +46,6 @@ public class CompanyController {
         return company.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    // Create a new company
-    // @ResponseStatus(HttpStatus.CREATED)
-    // @PostMapping("")
-    // void createCompany (@Valid @RequestBody Company company) {
-    //     companyRepository.create(company);
-    // }
     @PostMapping("")
     public ResponseEntity<Object> createCompany(@Valid @RequestBody Company company) {
         log.info("COntroller receive post");

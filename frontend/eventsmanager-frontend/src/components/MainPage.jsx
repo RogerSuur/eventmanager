@@ -36,28 +36,24 @@ function MainPage() {
     return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
   };
 
-  const deleteEvent = async (id, type) => {
-    console.log("Deleting participant", id, type);
+  const deleteEvent = async (id) => {
+    console.log("Deleting Event", id);
 
     try {
-      const response = await fetch(`http://localhost:8080/event/${id}`, {
+      const response = await fetch(`http://localhost:8080/api/events/${id}`, {
         method: "DELETE",
       });
 
       if (response.ok) {
-        console.log("Participant deleted successfully!");
-        // Filter out the participant from the list after deletion
-        setParticipants(
-          participants.filter((participant) => participant.id !== id)
-        );
-        alert("Participant deleted successfully!");
-        navigate("/");
+        console.log("Event deleted successfully!");
+        setEvents(events.filter((event) => event.id !== id));
+        alert("Event deleted successfully!");
       } else {
-        throw new Error("Failed to delete the participant");
+        throw new Error("Failed to delete the Event");
       }
     } catch (error) {
-      console.error("Error deleting participant:", error.message);
-      alert("Error deleting participant: " + error.message);
+      console.error("Error deleting Event:", error.message);
+      alert("Error deleting Event: " + error.message);
     }
   };
 
@@ -120,7 +116,7 @@ function MainPage() {
                       <button
                         className="btn p-0 mb-3"
                         style={{ border: "none", background: "none" }}
-                        onClick={deleteEvent}
+                        onClick={() => deleteEvent(event.id)}
                       >
                         <img
                           src={removeImage}

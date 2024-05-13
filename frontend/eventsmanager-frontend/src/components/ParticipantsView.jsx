@@ -74,7 +74,6 @@ function ParticipantsView() {
     setErrors({});
 
     if (validateForm()) {
-      console.log("Form is valid");
     } else {
       return;
     }
@@ -95,8 +94,6 @@ function ParticipantsView() {
           paymentMethod: companyData.companyPaymentType,
           info: companyData.companyInfo,
         };
-
-    console.log("Adding participant ", newParticipant, " to the database");
 
     const response = await fetch("http://localhost:8080" + endpoint, {
       method: "POST",
@@ -279,7 +276,7 @@ function ParticipantsView() {
                   <div className="row">
                     <div className="col-md-2"></div>
                     <div className="col-md-4">
-                      {index}. {participant.name}
+                      {index + 1}. {participant.name}
                     </div>
                     <div className="col-md-3">{participant.code}</div>
                     <div className="col-md-1">
@@ -312,7 +309,7 @@ function ParticipantsView() {
               ))}
             </>
           ) : (
-            <p>No participants found</p>
+            <p>Osavõtjaid ei ole</p>
           )}
 
           <p className="add-event-title mt-3">Osavõtjate lisamine</p>
