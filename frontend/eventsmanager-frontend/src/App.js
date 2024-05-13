@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import MainPage from "./components/MainPage.jsx";
 import AddEvent from "./components/AddEvent.jsx";
 import ParticipantsView from "./components/ParticipantsView.jsx";
-import AddParticipant from "./components/AddParticipant.jsx";
 import CustomerView from "./components/CustomerView.jsx";
 import CompanyView from "./components/CompanyView.jsx";
 
@@ -24,7 +23,6 @@ function App() {
             />
             <Route path="/customer/:customerId" element={<CustomerView />} />
             <Route path="/company/:companyId" element={<CompanyView />} />
-            <Route path="/add-participant" element={<AddParticipant />} />
           </Routes>
           <Footer />
         </Router>

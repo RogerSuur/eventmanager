@@ -188,12 +188,6 @@ function CustomerView() {
               </div>
             </div>
 
-            {/* <button type="button" onClick={handleSave}>
-              Save
-            </button>
-            <button type="button" onClick={handleBack}>
-              Back
-            </button> */}
             <button
               type="submit"
               className="btn btn-secondary mt-5 mb-5"
